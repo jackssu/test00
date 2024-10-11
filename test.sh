@@ -17,17 +17,17 @@ pkill -u $(whoami) -f 's5|start.sh|web server'
 # 检查文件并添加启动任务
 if [ -f "${WORKDIR}/start.sh" ]; then
     echo "添加 nezha 的 crontab 重启任务"
-    $CRON_NEZHA
+    eval ${CRON_NEZHA}
 fi
 
 if [ -f "${FILE_PATH}/config.json" ]; then
     echo "添加 socks5 的 crontab 重启任务"
-    $CRON_S5
+    eval ${CRON_S5}
 fi
 
 if [ -f "$HYSTERIA_CONFIG" ]; then
     echo "添加 Hysteria 的 crontab 重启任务"
-    $CRON_HYSTERIA
+    eval ${CRON_HYSTERIA}
 fi
 
 if [ ! -f "${WORKDIR}/start.sh" ] && [ ! -f "${FILE_PATH}/config.json" ] && [ ! -f "$HYSTERIA_CONFIG" ]; then
