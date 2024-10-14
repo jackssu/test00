@@ -16,27 +16,29 @@ ps aux | grep "$(whoami)" | grep -v "sshd\|bash\|grep" | awk '{print $2}' | xarg
 
 # Check if required files exist and add cron jobs
 if [ -f "${WORKDIR}/start.sh" ] && [ -f "${FILE_PATH}/config.json" ] && [ -f "$HYSTERIA_CONFIG" ]; then
-    echo "Adding cron tasks for nezha, socks5, and Hysteria."
+    echo "Runing nezha, socks5, and Hysteria."
     eval ${CRON_S5}
     eval ${CRON_NEZHA}
     sleep 3
     eval ${CRON_HYSTERIA}
 elif [ -f "${WORKDIR}/start.sh" ] && [ -f "$HYSTERIA_CONFIG" ]; then
-    echo "Adding cron tasks for nezha and Hysteria."
+    echo "Runing nezha and Hysteria."
     eval ${CRON_NEZHA}
+    sleep 3
     eval ${CRON_HYSTERIA}
 elif [ -f "${FILE_PATH}/config.json" ] && [ -f "$HYSTERIA_CONFIG" ]; then
-    echo "Adding cron tasks for socks5 and Hysteria."
+    echo "Runing socks5 and Hysteria."
     eval ${CRON_S5}
     eval ${CRON_HYSTERIA}
 elif [ -f "${WORKDIR}/start.sh" ]; then
-    echo "Adding cron task for nezha."
+    echo "Runing nezha."
     eval ${CRON_NEZHA}
+    sleep 3
 elif [ -f "${FILE_PATH}/config.json" ]; then
-    echo "Adding cron task for socks5."
+    echo "Runing socks5."
     eval ${CRON_S5}
 elif [ -f "$HYSTERIA_CONFIG" ]; then
-    echo "Adding cron task for Hysteria."
+    echo "Runing Hysteria."
     eval ${CRON_HYSTERIA}
 else
     echo "No valid configuration files found."
