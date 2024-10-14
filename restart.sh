@@ -18,19 +18,19 @@ ps aux | grep "$(whoami)" | grep -v "sshd\|bash\|grep" | awk '{print $2}' | xarg
 if [ -f "${WORKDIR}/start.sh" ] && [ -f "${FILE_PATH}/config.json" ] && [ -f "$HYSTERIA_CONFIG" ]; then
     echo "Runing nezha, socks5, and Hysteria."
     eval ${CRON_S5}
+    eval ${CRON_HYSTERIA}
     eval ${CRON_NEZHA}
     sleep 3
-    eval ${CRON_HYSTERIA}
 elif [ -f "${WORKDIR}/start.sh" ] && [ -f "${FILE_PATH}/config.json" ]; then
     echo "Runing nezha and socks5."
+    eval ${CRON_S5}
     eval ${CRON_NEZHA}
     sleep 3
-    eval ${CRON_S5}
 elif [ -f "${WORKDIR}/start.sh" ] && [ -f "$HYSTERIA_CONFIG" ]; then
     echo "Runing nezha and Hysteria."
+    eval ${CRON_HYSTERIA}
     eval ${CRON_NEZHA}
     sleep 3
-    eval ${CRON_HYSTERIA}
 elif [ -f "${FILE_PATH}/config.json" ] && [ -f "$HYSTERIA_CONFIG" ]; then
     echo "Runing socks5 and Hysteria."
     eval ${CRON_S5}
