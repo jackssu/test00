@@ -14,7 +14,7 @@ CRON_HYSTERIA="nohup ${HYSTERIA_WORKDIR}/web server $HYSTERIA_CONFIG >> ${USER_H
 # Cleanup existing processes
 ps aux | grep "$(whoami)" | grep -v "sshd\|bash\|grep" | awk '{print $2}' | xargs -r kill -9 > /dev/null 2>&1 
 
-# Check if required files exist and add cron jobs
+# Check if required files exist and restart
 if [ -f "${WORKDIR}/start.sh" ] && [ -f "${FILE_PATH}/config.json" ] && [ -f "$HYSTERIA_CONFIG" ]; then
     echo "Runing nezha, socks5, and Hysteria."
     eval ${CRON_S5}
