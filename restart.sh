@@ -21,7 +21,7 @@ if [ -f "${WORKDIR}/start.sh" ] && [ -f "${FILE_PATH}/config.json" ] && [ -f "$H
     eval ${CRON_NEZHA}
     sleep 3
     eval ${CRON_HYSTERIA}
-    elif [ -f "${WORKDIR}/start.sh" ] && [ -f "${FILE_PATH}/config.json" ]; then
+elif [ -f "${WORKDIR}/start.sh" ] && [ -f "${FILE_PATH}/config.json" ]; then
     echo "Runing nezha and socks5."
     eval ${CRON_NEZHA}
     sleep 3
