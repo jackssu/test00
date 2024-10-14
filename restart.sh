@@ -19,6 +19,7 @@ if [ -f "${WORKDIR}/start.sh" ] && [ -f "${FILE_PATH}/config.json" ] && [ -f "$H
     echo "Adding cron tasks for nezha, socks5, and Hysteria."
     eval ${CRON_S5}
     eval ${CRON_NEZHA}
+    sleep 3
     eval ${CRON_HYSTERIA}
 elif [ -f "${WORKDIR}/start.sh" ] && [ -f "$HYSTERIA_CONFIG" ]; then
     echo "Adding cron tasks for nezha and Hysteria."
