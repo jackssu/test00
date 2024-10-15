@@ -31,7 +31,7 @@ echo "检查并添加 crontab 任务"
     echo "添加 nezha 和 Hysteria 的 crontab 重启任务"
     (crontab -l | grep -F "@reboot pkill -kill -u $USER && ${CRON_NEZHA} && ${CRON_HYSTERIA}") || (crontab -l; echo "@reboot pkill -kill -u $USER && ${CRON_NEZHA} && ${CRON_HYSTERIA}") | crontab -
     (crontab -l | grep -F "pgrep -x \"nezha-agent\" > /dev/null || ${CRON_NEZHA}") || (crontab -l; echo "*/15 * * * * pgrep -x \"nezha-agent\" > /dev/null || ${CRON_NEZHA}") | crontab -
-   (crontab -l | grep -F "pgrep -x \"web\" > /dev/null || ${CRON_HYSTERIA}") || (crontab -l; echo "*/15 * * * * pgrep -x \"web\" > /dev/null || ${CRON_HYSTERIA}") | crontab -
+    (crontab -l | grep -F "pgrep -x \"web\" > /dev/null || ${CRON_HYSTERIA}") || (crontab -l; echo "*/15 * * * * pgrep -x \"web\" > /dev/null || ${CRON_HYSTERIA}") | crontab -
     eval ${CRON_HYSTERIA}
     eval ${CRON_NEZHA}
     sleep 3
